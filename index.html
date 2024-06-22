@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+
+    <img src= "imgbanner.png" alt="Trulli" width="1250" height="400">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Print Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <div class="container">
+        <div class="left-panel">
+            <h1>Bill Generator</h1>
+            <div class="form-group">
+                <label for="customer-name">Customer Name:</label>
+                <input type="text" id="customer-name">
+            </div>
+            <div class="form-group">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name">
+            </div>
+            <div class="form-group">
+                <label for="item-quantity">Quantity:</label>
+                <input type="number" id="item-quantity">
+            </div>
+            <div class="form-group">
+                <label for="item-price">Price (LKR):</label>
+                <input type="number" id="item-price" step="0.01">
+            </div>
+            <button class="btn" onclick="addItem()">Add Item</button>
+            <div id="items-list"></div>
+            <button class="btn" onclick="generateBill()">Generate Bill</button>
+        </div>
+        <div class="right-panel">
+            <h2>Calculator</h2>
+            <div class="calculator">
+                <div class="calculator-display">
+                    <input type="text" id="calc-display" readonly>
+                </div>
+                <div class="calculator-buttons">
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteDigit()">DEL</button>
+                    <button onclick="appendCharacter('/')">/</button>
+                    <button onclick="appendCharacter('*')">*</button>
+                    <button onclick="appendCharacter('7')">7</button>
+                    <button onclick="appendCharacter('8')">8</button>
+                    <button onclick="appendCharacter('9')">9</button>
+                    <button onclick="appendCharacter('-')">-</button>
+                    <button onclick="appendCharacter('4')">4</button>
+                    <button onclick="appendCharacter('5')">5</button>
+                    <button onclick="appendCharacter('6')">6</button>
+                    <button onclick="appendCharacter('+')">+</button>
+                    <button onclick="appendCharacter('1')">1</button>
+                    <button onclick="appendCharacter('2')">2</button>
+                    <button onclick="appendCharacter('3')">3</button>
+                    <button onclick="calculateResult()">=</button>
+                    <button onclick="appendCharacter('0')" class="span-two">0</button>
+                    <button onclick="appendCharacter('.')">.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bill-output" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Bill</h2>
+            <p id="output-customer-name"></p>
+            <div id="output-items"></div>
+            <p class="bill-total">Total: LKR <span id="output-total"></span></p>
+            <button class="btn" onclick="printBill()">Print Bill</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
